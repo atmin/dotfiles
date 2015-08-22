@@ -1,3 +1,7 @@
+# Reference from .gitconfig like this:
+# [include]
+#   path = dotfiles/gitalias
+
 [alias]
 	st = status
 	co = checkout
