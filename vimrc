@@ -116,6 +116,9 @@ let mapleader = ','
 :nnoremap <Tab> :bnext<CR>
 :nnoremap <S-Tab> :bprevious<CR>
 
+" <Leader><Leader> = buffers
+:nnoremap <Leader><Leader> :CtrlPBuffer<CR>
+
 " Ctrl-E toggles NERDTree
 map <C-e> :NERDTreeToggle<CR>
 
