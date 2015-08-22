@@ -23,10 +23,6 @@ endif
 
 
 
-
-
-
-
 " WHITESPACE
 :set expandtab shiftwidth=2 softtabstop=2           " Whitespace is 2 spaces
 " Per file type whitespace policy example
@@ -44,6 +40,14 @@ Plugin 'VundleVim/Vundle.vim'                        " let Vundle manage Vundle,
 Plugin 'altercation/vim-colors-solarized'            " solarized color scheme
 Plugin 'scrooloose/syntastic'                        " Syntax checking
 Plugin 'scrooloose/nerdtree'                         " NERDTree
+let NERDTreeShowBookmarks=1
+let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
+let NERDTreeChDirMode=0
+let NERDTreeQuitOnOpen=1
+let NERDTreeMouseMode=2
+let NERDTreeShowHidden=1
+let NERDTreeKeepTreeInNewTab=1
+let g:nerdtree_tabs_open_on_gui_startup=0
 Plugin 'scrooloose/nerdcommenter'                    " NERDCommenter
 let NERDSpaceDelims=1                                  " Put extra space after comment begin
 Plugin 'kien/ctrlp.vim'                              " CtrlP
@@ -55,6 +59,9 @@ Plugin 'tpope/vim-surround'                          " Surround
 Plugin 'tpope/vim-abolish'                           " Replace variations
 Plugin 'kristijanhusak/vim-multiple-cursors'         " Multiple cursors
 Plugin 'mbbill/undotree'                             " Undo tree
+Plugin 'gorodinskiy/vim-coloresque'                  " colorize
+Plugin 'pangloss/vim-javascript'                     " better JS support
+Plugin 'klen/python-mode'                            " better Python support
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -83,9 +90,12 @@ set showcmd                                          " Show partial commands in 
 set showmatch                                        " Show matching brackets/parenthesis
 set incsearch                                        " Find as you type search
 set hlsearch                                         " Highlight search terms
+set ignorecase
 set smartcase                                        " Case sensitive when uc present
 set list                                             " Highlight problematic whitespace
 set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
+set wildmode=longest:full                            " BASH-like filename autocomplete
+set wildmenu
 au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0]) " editing a git commit message
 
 if has('statusline')
