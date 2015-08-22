@@ -52,6 +52,7 @@ Plugin 'bling/vim-airline'                           " Nice status line
 Plugin 'tpope/vim-fugitive'                          " Git goodies
 Plugin 'mhinz/vim-signify'                           " Git status
 Plugin 'tpope/vim-surround'                          " Surround
+Plugin 'tpope/vim-abolish'                           " Replace variations
 Plugin 'kristijanhusak/vim-multiple-cursors'         " Multiple cursors
 Plugin 'mbbill/undotree'                             " Undo tree
 
