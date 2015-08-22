@@ -50,7 +50,8 @@ let NERDTreeKeepTreeInNewTab=1
 let g:nerdtree_tabs_open_on_gui_startup=0
 Plugin 'scrooloose/nerdcommenter'                    " NERDCommenter
 let NERDSpaceDelims=1                                  " Put extra space after comment begin
-Plugin 'kien/ctrlp.vim'                              " CtrlP
+Plugin 'kien/ctrlp.vim'                              " CtrlP, ignore .gitignore files
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 Plugin 'ervandew/supertab'                           " Supertab autocomplete
 Plugin 'bling/vim-airline'                           " Nice status line
 Plugin 'tpope/vim-fugitive'                          " Git goodies
@@ -78,6 +79,7 @@ if filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"
     let g:solarized_contrast="normal"
     let g:solarized_visibility="normal"
     color solarized
+    set background=dark
 endif
 
 set number                                           " Line numbers
@@ -94,7 +96,7 @@ set ignorecase
 set smartcase                                        " Case sensitive when uc present
 set list                                             " Highlight problematic whitespace
 set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
-set wildmode=longest:full                            " BASH-like filename autocomplete
+set wildmode=longest:full                            " Bash-like filename autocomplete
 set wildmenu
 au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0]) " editing a git commit message
 
