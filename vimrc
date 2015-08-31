@@ -4,6 +4,7 @@ syntax on                                           " Switch syntax highlighting
 set mouse=a                                         " Automatically enable mouse usage
 set mousehide                                       " Hide the mouse cursor while typing
 scriptencoding utf-8                                " UTF-8
+set hidden                                          " Switch unsaved buffers
 
 if has('clipboard')                                 " Use system clipboard
   if has('unnamedplus')                               " When possible use + register for copy-paste
@@ -39,6 +40,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'                        " let Vundle manage Vundle, required
 Plugin 'altercation/vim-colors-solarized'            " solarized color scheme
 Plugin 'scrooloose/syntastic'                        " Syntax checking
+let g:syntastic_javascript_checkers = ['eslint']
 Plugin 'scrooloose/nerdtree'                         " NERDTree
 let NERDTreeShowBookmarks=1
 let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
@@ -62,6 +64,8 @@ Plugin 'kristijanhusak/vim-multiple-cursors'         " Multiple cursors
 Plugin 'mbbill/undotree'                             " Undo tree
 Plugin 'gorodinskiy/vim-coloresque'                  " colorize
 Plugin 'pangloss/vim-javascript'                     " better JS support
+Plugin 'mxw/vim-jsx'                                 " JSX support
+let g:jsx_ext_required = 0                           " enable for .js files
 Plugin 'klen/python-mode'                            " better Python support
 
 " All of your Plugins must be added before the following line
@@ -135,6 +139,9 @@ let mapleader = ','
 " Ctrl-E toggles NERDTree
 map <C-e> :NERDTreeToggle<CR>
 
+" Starting new search clears old highlight
+:nnoremap / :noh<CR>/
+
 " Type // in visual mode to search selected text
 :vnoremap // y/<C-R>"<CR>"
 
@@ -144,3 +151,6 @@ if isdirectory(expand("~/.vim/bundle/undotree/"))
   " If undotree is opened, it is likely one wants to interact with it.
   let g:undotree_SetFocusWhenToggle=1
 endif
+
+" w!! = sudo write file
+cmap w!! w !sudo tee % >/dev/null
