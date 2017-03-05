@@ -57,8 +57,10 @@ let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclu
 Plugin 'ervandew/supertab'                           " Supertab autocomplete
 Plugin 'bling/vim-airline'                           " Nice status line
 Plugin 'tpope/vim-fugitive'                          " Git goodies
+Plugin 'gregsexton/gitv'                             " gitk for Vim
 Plugin 'mhinz/vim-signify'                           " Git status
 Plugin 'tpope/vim-surround'                          " Surround
+Plugin 'mitsuhiko/vim-jinja'                         " Jinja support
 Plugin 'tpope/vim-abolish'                           " Replace variations
 Plugin 'kristijanhusak/vim-multiple-cursors'         " Multiple cursors
 Plugin 'mbbill/undotree'                             " Undo tree
@@ -66,7 +68,10 @@ Plugin 'gorodinskiy/vim-coloresque'                  " colorize
 Plugin 'pangloss/vim-javascript'                     " better JS support
 Plugin 'mxw/vim-jsx'                                 " JSX support
 let g:jsx_ext_required = 0                           " enable for .js files
-Plugin 'klen/python-mode'                            " better Python support
+Plugin 'easymotion/vim-easymotion'                   " easy, fast motions
+Plugin 'milkypostman/vim-togglelist'                 " toggle location/quickfix lists, <leader>l/<leader>q
+Plugin 'Valloric/MatchTagAlways'                     " always highlight surrounding html tag
+Plugin 'maksimr/vim-jsbeautify'                      " jsbeautifier.org functionality inside Vim
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -133,9 +138,6 @@ let mapleader = ','
 :nnoremap <Tab> :bnext<CR>
 :nnoremap <S-Tab> :bprevious<CR>
 
-" <Leader><Leader> = buffers
-:nnoremap <Leader><Leader> :CtrlPBuffer<CR>
-
 " Ctrl-E toggles NERDTree
 map <C-e> :NERDTreeToggle<CR>
 
@@ -154,3 +156,6 @@ endif
 
 " w!! = sudo write file
 cmap w!! w !sudo tee % >/dev/null
+
+" <Leader><Leader> = buffers
+:nnoremap <Leader><Leader> :CtrlPBuffer<CR>
