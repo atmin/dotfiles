@@ -24,7 +24,7 @@ endif
 
 
 
-" WHITESPACE
+" WHITESPACE	
 :set expandtab shiftwidth=2 softtabstop=2           " Whitespace is 2 spaces
 " Per file type whitespace policy example
 " autocmd FileType haskell,puppet,ruby,yml setlocal expandtab shiftwidth=2 softtabstop=2
@@ -56,6 +56,7 @@ Plugin 'kien/ctrlp.vim'                              " CtrlP, ignore .gitignore 
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 Plugin 'ervandew/supertab'                           " Supertab autocomplete
 Plugin 'bling/vim-airline'                           " Nice status line
+let g:airline_powerline_fonts = 1
 Plugin 'tpope/vim-fugitive'                          " Git goodies
 Plugin 'gregsexton/gitv'                             " gitk for Vim
 Plugin 'mhinz/vim-signify'                           " Git status
