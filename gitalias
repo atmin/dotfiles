@@ -8,7 +8,7 @@
 	ci = commit
 	l  = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
 	ls = log --stat
-	d  = difftool -t opendiff -d
+	d  = difftool -t meld -d
 	edit-history = "!sh -c \"git rebase -i `git merge-base HEAD $1`\""
 	show-diff = "!sh -c \"git difftool -t opendiff -d `git merge-base HEAD $1`\""
 	since = !git log $(git merge-base --fork-point sprint)..HEAD
