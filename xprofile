@@ -1,2 +1,8 @@
+# Add BG Phonetic keyboard
 setxkbmap -layout us,bg -variant ,phonetic -option grp:alt_shift_toggle
+
+# bind vol+/-/mute keys
 xbindkeys
+
+# disable tap-to-click
+synclient TapButton1=0
