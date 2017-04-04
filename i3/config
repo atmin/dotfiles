@@ -158,7 +158,7 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
 client.background       #ffffff
 
-new_window pixel 1
+new_window pixel 2
 hide_edge_borders smart
 
 # Start i3bar to display a workspace bar (plus the system information i3status
@@ -205,7 +205,7 @@ bindsym $mod+Escape mode "$mode_system"
 bindsym $mod+space exec --no-startup-id xfce4-appfinder
 
 # Assign floating windows.
-for_window [title="Preferences$|Finder$|Control$"] floating enable
+for_window [title="Preferences$|Finder$|Control$|VirtualBox$"] floating enable
 for_window [window_role="^conversation$"] floating enable
 for_window [window_role="messages"] floating enable
 for_window [window_role="pop-up"] floating enable
