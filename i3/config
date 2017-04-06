@@ -204,6 +204,8 @@ bindsym $mod+Escape mode "$mode_system"
 
 bindsym $mod+space exec --no-startup-id xfce4-appfinder
 
+bindsym $mod+Print exec scrot -u $HOME/Pictures/Screenshots/`date +%Y-%m-%d_%H:%M:%S`.png
+
 # Assign floating windows.
 for_window [title="Preferences$|Finder$|Control$|VirtualBox$"] floating enable
 for_window [window_role="^conversation$"] floating enable
