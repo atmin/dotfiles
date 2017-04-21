@@ -1,0 +1,1 @@
+ag $1 --files-with-matches | xargs -I {} sed -i -e "s/$1/$2/g" {}
