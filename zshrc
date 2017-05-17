@@ -90,6 +90,16 @@ source $ZSH/oh-my-zsh.sh
 export EDITOR=vim
 export PATH=$PATH:~/dotfiles/bin
 
+# adb android
 if [ -d "$HOME/adb-fastboot/platform-tools" ] ; then
   export PATH="$HOME/adb-fastboot/platform-tools:$PATH"
 fi
+
+# nix package manager
+[ -d "$HOME/.nix-profile" ] && . $HOME/.nix-profile/etc/profile.d/nix.sh
+
+# ssh-agent
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+
+# npme - add node_modules/.bin to PATH
+alias npme='PATH="$(npm bin):$PATH"'

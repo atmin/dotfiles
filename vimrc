@@ -68,11 +68,14 @@ Plugin 'mbbill/undotree'                             " Undo tree
 Plugin 'gorodinskiy/vim-coloresque'                  " colorize
 Plugin 'pangloss/vim-javascript'                     " better JS support
 Plugin 'mxw/vim-jsx'                                 " JSX support
+au BufNewFile,BufRead *.es6 set filetype=javascript
 let g:jsx_ext_required = 0                           " enable for .js files
-Plugin 'easymotion/vim-easymotion'                   " easy, fast motions
+Plugin 'ternjs/tern_for_vim'                         " JS refactoring features
+" Plugin 'easymotion/vim-easymotion'                   " easy, fast motions
 Plugin 'milkypostman/vim-togglelist'                 " toggle location/quickfix lists, <leader>l/<leader>q
 Plugin 'Valloric/MatchTagAlways'                     " always highlight surrounding html tag
 Plugin 'maksimr/vim-jsbeautify'                      " jsbeautifier.org functionality inside Vim
+Plugin 'sunaku/vim-dasht'                            " offline documentation
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
