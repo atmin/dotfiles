@@ -98,8 +98,8 @@ fi
 # nix package manager
 [ -d "$HOME/.nix-profile" ] && . $HOME/.nix-profile/etc/profile.d/nix.sh
 
-# ssh-agent
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+# ssh-agent. use `ssh-add` to permanently unlock ssh key for session
+eval `ssh-agent`
 
 # npme - add node_modules/.bin to PATH
 alias npme='PATH="$(npm bin):$PATH"'

@@ -71,7 +71,7 @@ Plugin 'mxw/vim-jsx'                                 " JSX support
 au BufNewFile,BufRead *.es6 set filetype=javascript
 let g:jsx_ext_required = 0                           " enable for .js files
 Plugin 'ternjs/tern_for_vim'                         " JS refactoring features
-" Plugin 'easymotion/vim-easymotion'                   " easy, fast motions
+Plugin 'easymotion/vim-easymotion'                   " easy, fast motions
 Plugin 'milkypostman/vim-togglelist'                 " toggle location/quickfix lists, <leader>l/<leader>q
 Plugin 'Valloric/MatchTagAlways'                     " always highlight surrounding html tag
 Plugin 'maksimr/vim-jsbeautify'                      " jsbeautifier.org functionality inside Vim
@@ -138,9 +138,8 @@ let mapleader = ','
 " Fix paste in insert mode
 :imap <D-v> ^O:set paste<Enter>^R+^O:set nopaste<Enter>
 
-" <Tab>/<Shift-Tab> = Next/Prev buffer
-:nnoremap <Tab> :bnext<CR>
-:nnoremap <S-Tab> :bprevious<CR>
+" <Tab> = buffers
+:nnoremap <Tab> :CtrlPBuffer<CR>
 
 " Ctrl-E toggles NERDTree
 map <C-e> :NERDTreeToggle<CR>
@@ -161,5 +160,8 @@ endif
 " w!! = sudo write file
 cmap w!! w !sudo tee % >/dev/null
 
-" <Leader><Leader> = buffers
-:nnoremap <Leader><Leader> :CtrlPBuffer<CR>
+" EasyMotion config
+let g:EasyMotion_do_mapping = 0             " Disable default mappings
+nmap <Space>  <Plug>(easymotion-overwin-f)  " <Space>{char}{label}
+map <Leader>w <Plug>(easymotion-w)
+map <Leader>b <Plug>(easymotion-b)
