@@ -55,7 +55,8 @@ let NERDSpaceDelims=1                                  " Put extra space after c
 Plugin 'kien/ctrlp.vim'                              " CtrlP, ignore .gitignore files
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 Plugin 'ervandew/supertab'                           " Supertab autocomplete
-Plugin 'bling/vim-airline'                           " Nice status line
+Plugin 'vim-airline/vim-airline'                     " Nice status line
+Plugin 'vim-airline/vim-airline-themes'
 let g:airline_powerline_fonts = 1
 Plugin 'tpope/vim-fugitive'                          " Git goodies
 Plugin 'gregsexton/gitv'                             " gitk for Vim
@@ -68,7 +69,9 @@ Plugin 'mbbill/undotree'                             " Undo tree
 Plugin 'gorodinskiy/vim-coloresque'                  " colorize
 Plugin 'pangloss/vim-javascript'                     " better JS support
 Plugin 'mxw/vim-jsx'                                 " JSX support
-au BufNewFile,BufRead *.es6 set filetype=javascript
+au BufNewFile,BufRead *.js set filetype=javascript.jsx
+au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
+au BufNewFile,BufRead *.es6 set filetype=javascript.jsx
 let g:jsx_ext_required = 0                           " enable for .js files
 Plugin 'ternjs/tern_for_vim'                         " JS refactoring features
 Plugin 'easymotion/vim-easymotion'                   " easy, fast motions
@@ -92,7 +95,7 @@ if filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"
     let g:solarized_contrast="normal"
     let g:solarized_visibility="normal"
     color solarized
-    set background=dark
+    set background=light
 endif
 
 set number                                           " Line numbers
@@ -144,11 +147,14 @@ let mapleader = ','
 " Ctrl-E toggles NERDTree
 map <C-e> :NERDTreeToggle<CR>
 
-" Starting new search clears old highlight
-:nnoremap / :noh<CR>/
+" starting new search clears old highlight
+:nnoremap / :noh<cr>/
 
-" Type // in visual mode to search selected text
-:vnoremap // y/<C-R>"<CR>"
+" type // in visual mode to search selected text
+:vnoremap // y/<c-r>"<cr>"
+
+" jj = Esc
+:imap jj <Esc>
 
 " <Leader>u toggles UndoTree
 if isdirectory(expand("~/.vim/bundle/undotree/"))
@@ -161,7 +167,7 @@ endif
 cmap w!! w !sudo tee % >/dev/null
 
 " EasyMotion config
-let g:EasyMotion_do_mapping = 0             " Disable default mappings
-nmap <Space>  <Plug>(easymotion-overwin-f)  " <Space>{char}{label}
+let g:EasyMotion_do_mapping = 0              " Disable default mappings
+nmap <Space>   <Plug>(easymotion-overwin-f)  " <Space>{char}{label}
 map <Leader>w <Plug>(easymotion-w)
 map <Leader>b <Plug>(easymotion-b)
