@@ -55,6 +55,7 @@ let NERDSpaceDelims=1                                  " Put extra space after c
 Plugin 'kien/ctrlp.vim'                              " CtrlP, ignore .gitignore files
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 Plugin 'ervandew/supertab'                           " Supertab autocomplete
+" Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-airline/vim-airline'                     " Nice status line
 Plugin 'vim-airline/vim-airline-themes'
 let g:airline_powerline_fonts = 1
