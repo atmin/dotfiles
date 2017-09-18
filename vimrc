@@ -39,8 +39,8 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'                        " let Vundle manage Vundle, required
 Plugin 'altercation/vim-colors-solarized'            " solarized color scheme
-Plugin 'scrooloose/syntastic'                        " Syntax checking
-let g:syntastic_javascript_checkers = ['eslint']
+" Plugin 'vim-syntastic/syntastic'                     " Syntax checking
+" let g:syntastic_javascript_checkers = ['eslint']
 Plugin 'scrooloose/nerdtree'                         " NERDTree
 let NERDTreeShowBookmarks=1
 let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
@@ -70,6 +70,7 @@ Plugin 'mbbill/undotree'                             " Undo tree
 Plugin 'gorodinskiy/vim-coloresque'                  " colorize
 Plugin 'pangloss/vim-javascript'                     " better JS support
 Plugin 'mxw/vim-jsx'                                 " JSX support
+Plugin 'w0rp/ale'                                    " Async Lint Engine
 au BufNewFile,BufRead *.js set filetype=javascript.jsx
 au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
 au BufNewFile,BufRead *.es6 set filetype=javascript.jsx
@@ -78,6 +79,7 @@ Plugin 'ternjs/tern_for_vim'                         " JS refactoring features
 Plugin 'easymotion/vim-easymotion'                   " easy, fast motions
 Plugin 'milkypostman/vim-togglelist'                 " toggle location/quickfix lists, <leader>l/<leader>q
 Plugin 'Valloric/MatchTagAlways'                     " always highlight surrounding html tag
+Plugin 'exvim/ex-matchit'                            " jump to opening/closing tag like braces
 Plugin 'maksimr/vim-jsbeautify'                      " jsbeautifier.org functionality inside Vim
 Plugin 'sunaku/vim-dasht'                            " offline documentation
 
