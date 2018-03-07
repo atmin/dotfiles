@@ -5,6 +5,7 @@ set mouse=a                                         " Automatically enable mouse
 set mousehide                                       " Hide the mouse cursor while typing
 scriptencoding utf-8                                " UTF-8
 set hidden                                          " Switch unsaved buffers
+set t_Co=256                                        " fix syntax highlighting in tmux
 
 if has('clipboard')                                 " Use system clipboard
   if has('unnamedplus')                               " When possible use + register for copy-paste
@@ -51,7 +52,7 @@ let NERDTreeShowHidden=1
 let NERDTreeKeepTreeInNewTab=1
 let g:nerdtree_tabs_open_on_gui_startup=0
 Plugin 'scrooloose/nerdcommenter'                    " NERDCommenter
-let NERDSpaceDelims=1                                  " Put extra space after comment begin
+let NERDSpaceDelims=1                                " Put extra space after comment begin
 Plugin 'kien/ctrlp.vim'                              " CtrlP, ignore .gitignore files
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 Plugin 'ervandew/supertab'                           " Supertab autocomplete
@@ -59,6 +60,7 @@ Plugin 'ervandew/supertab'                           " Supertab autocomplete
 Plugin 'vim-airline/vim-airline'                     " Nice status line
 Plugin 'vim-airline/vim-airline-themes'
 let g:airline_powerline_fonts = 1
+Plugin 'wincent/terminus'                            " Enhanced terminal integration
 Plugin 'tpope/vim-fugitive'                          " Git goodies
 Plugin 'gregsexton/gitv'                             " gitk for Vim
 Plugin 'mhinz/vim-signify'                           " Git status
@@ -70,11 +72,16 @@ Plugin 'mbbill/undotree'                             " Undo tree
 Plugin 'gorodinskiy/vim-coloresque'                  " colorize
 Plugin 'pangloss/vim-javascript'                     " better JS support
 Plugin 'mxw/vim-jsx'                                 " JSX support
-Plugin 'w0rp/ale'                                    " Async Lint Engine
 au BufNewFile,BufRead *.js set filetype=javascript.jsx
+au BufNewFile,BufRead *.ts set filetype=javascript.jsx
 au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
 au BufNewFile,BufRead *.es6 set filetype=javascript.jsx
 let g:jsx_ext_required = 0                           " enable for .js files
+Plugin 'w0rp/ale'                                    " Async Lint Engine
+let g:ale_fixers = {}
+let g:ale_fixers['javascript'] = ['prettier']
+let g:ale_fix_on_save = 1
+let g:ale_javascript_prettier_options = '--single-quote --trailing-comma es5 --jsx-bracket-same-line'
 Plugin 'ternjs/tern_for_vim'                         " JS refactoring features
 Plugin 'easymotion/vim-easymotion'                   " easy, fast motions
 Plugin 'milkypostman/vim-togglelist'                 " toggle location/quickfix lists, <leader>l/<leader>q
